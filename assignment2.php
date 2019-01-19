@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
   }
 echo $actual_link*/
 
+//This line below is garbage. See w3 for implementation. 
+function test_input( $x ){return $x; }
+
 // define variables and set to empty values
 $nameErr = $emailErr = $phoneErr = $stateErr = "";
 $name = $email = $phone = $state = "";
@@ -64,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 echo "<h2>Your input:</h2>";
 echo $name;
 echo "<br>";
-echo $email; <br>
-echo $phone; <br>
+echo $email . "<br>";
+echo $phone . "<br>";
 echo $state;
 ?>
 </body>
