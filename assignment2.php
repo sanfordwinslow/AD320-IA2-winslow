@@ -1,10 +1,10 @@
 <html>
 <body>
 <?php
+ini_set('display_errors', 1);
+//$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-/*$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-//GET request processing
+/*//GET request processing
 if ($_SERVER['REQUEST_METHOD'] === "GET") {
   echo( "<p>GET REQUEST SENT</p>");
   $get_array =  $_GET;
@@ -12,9 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
     echo $key . ': ' . $val . '<br>';
   }
 echo $actual_link*/
-
-//This line below is garbage. See w3 for implementation. 
-function test_input( $x ){return $x; }
 
 // define variables and set to empty values
 $nameErr = $emailErr = $phoneErr = $stateErr = "";
@@ -60,13 +57,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       $stateErr = "Only letters and white space allowed";
     }
   }
+  function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }
-?>
+}
 
-<?php
 echo "<h2>Your input:</h2>";
-echo $name;
-echo "<br>";
+echo $name . "<br>";
 echo $email . "<br>";
 echo $phone . "<br>";
 echo $state;
